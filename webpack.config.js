@@ -75,7 +75,7 @@ var Config = {
         loader: 'babel-loader',
         exclude: /node_modules|react-custom-scrollbars/,
         query: {
-          presets: ['react', 'stage-2','es2015-native-modules'],
+          presets: ['react', 'es2015'],
           plugins: ["transform-object-rest-spread","transform-object-assign"]
         }
       }
