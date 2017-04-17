@@ -1,0 +1,56 @@
+.svcimg {
+    margin: 25px;
+}
+.footerwrap .svc:nth-child(odd) .svcimg {
+    float:left;
+}
+.footerwrap .svc:nth-child(even) .svcimg {
+    float:right;
+    transform: scaleX(-1);
+}
+.svc:nth-child(n+2):before {
+    display: block;
+    width: 90%;
+    content:" ";
+    border: 1px solid $mred;
+    margin: auto;
+}
+.svc:last-of-type p:last-child {
+    width: 70%;
+}
+.svcs h2 {
+    margin-bottom: -0.6em;
+}
+.svc:first-child h1 {
+    margin-top: 0;
+}
+.svc.planning {
+    color: gray;
+    h2 {
+        color: darkgrey;
+    }
+    h1>.anchor {
+       display: inline-block;
+    }
+    h1:after {
+        content: " — в процессе запуска";
+        color: darkgrey;
+    }
+}
+
+@media screen and (max-width: $mdevW) {
+
+    .svcimg {
+        height: auto;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        img {
+            height: auto;
+            width: auto;
+            max-width: 250px;
+            max-height: 350px;
+        
+        }
+    }
+}

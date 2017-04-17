@@ -1,0 +1,258 @@
+.personal {
+    box-sizing: border-box;
+    color: white;
+    bottom: 0;
+    margin: 0 auto;
+    color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 150px;
+    max-width: 80%;
+    @media screen and (max-width: $midDevW) {
+        max-width: 90%;
+        //width: 90%;
+    }
+    @media screen and (max-width: $mbdevW) {
+        max-width: 100%;
+    }
+    &>.p-menu {
+        width: 20%;
+        height: 100%;
+    }
+    &>.roster-history {
+        width: 80%;
+        max-width: 1024px;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    @media screen and (max-width: $sdevW) {
+        top: 3.5em;
+       //position: relative;
+        .r-settings {
+            margin: 1px;
+            left: 0;
+            
+        }
+        &>.p-menu {
+            display: none;
+        }
+        &>.roster-history {
+            width: 100%;
+        }
+    }
+    
+}
+
+.p-menu, .roster-history {
+    font-family: Jura, sans-serif;
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.p-settings {
+    text-align: right;
+    display: block;
+    position: relative;
+    line-height: 2em;
+    box-sizing: border-box;
+    &:after {
+        content: "^";//"settings";
+        font: 1em WebSymbolsLigaRegular;
+        display:inline-block;
+        margin: 0 0 0 0.5em;
+    }
+    &.selected:after {
+        color: $mred;
+    }
+    &:before {
+        position: absolute;
+        display: block;
+        content: " ";
+        bottom: 0px;
+        height: 1px;
+        width: 100%;
+        background: $mred;
+        background: linear-gradient(to right, rgba($mred,0), $mred);
+    }
+    &.selected:before, &:hover:before {
+        background: $mred;
+    }
+    &.selected, &:active, &:hover {
+        outline: none;
+    }
+}
+.roster {
+    color: white;
+    a.selected, a:active, a:hover {
+        outline: none;
+    }
+}
+.r-item {
+        display: block;
+        text-align: right;
+        padding: 0.5em 0;
+        font-size: 1.5em;
+        box-sizing: border-box;
+        padding: 0.5em 20px 0.5em 0;
+        width: 100%;
+        position: relative;
+        overflow-wrap: break-word;
+        outline: none;
+
+        &:first-of-type:after, & + &:after {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0px;
+            bottom: 0;
+            height: 1px;
+            content: " ";
+            background: $mred;
+            background: linear-gradient(to right, rgba($mred,0), $mred);
+        }
+        &:last-of-type:after {
+            background: $mred;
+            background: linear-gradient(to right, rgba($mred,0), $mred);
+        }
+        &.selected:after, &:hover:after {
+            background: $mred;
+        }
+}
+
+.r-settings {
+    position: absolute;
+    left: 22%;
+    right: 0;
+    margin-left: 40px;
+    * {
+        box-sizing: border-box;
+    }
+    display: inline-block;
+    height: 100%;
+    text-align: left;
+    font: 1.5em "Exo 2", sans-serif;
+    color: white;
+    &>div {
+        margin-bottom: 15px;
+    }
+    select {
+        color: white;//rgba(0,0,0,0);
+        //text-shadow: 0 0 0 white;
+        font-size: 0.8em;
+        line-height: 2em;
+        height: 3em;
+    }
+    textarea {
+        color: white;
+        min-height: 10em;
+        font-size: 1em;
+    }
+    select, textarea {
+        display: block;
+        background: $mblue;
+        border: 2px $mred solid;
+        margin: 20px 40px;
+        padding: 0 20px;
+        width: 90%;
+        @media screen and (max-width: $sdevW) {
+            margin: 10px auto;
+            padding: 0 10px;
+        }
+    }
+    button {
+        color: white;
+        background: $mblue;
+        border: 2px $mred solid;
+        font: 1em "Exo 2", sans-serif;
+        min-width: 20%;
+        padding: 15px;
+        margin: 30px 40px;
+    }
+}
+
+.roster-history {
+    .no-history {
+        text-align: center;
+        width: 80%;
+        font: 2.5em "Exo 2", sans-serif;
+        margin: auto;
+        color: gray;
+        @media screen and (max-width: $sdevW) {
+            width: 100%;
+        }
+    }
+    .no-history:before {
+        content: "l";//"cloudup";
+        font: 3em WebSymbolsLigaRegular;
+        display:block;
+    }
+
+    .message {
+        margin: 5px 10px;
+        padding: 10px;
+        max-width: 90%;
+        @media screen and (max-width: $mbdevW) {
+            margin: 5px 10px;
+            padding: 0;
+            max-width: 100%;
+        }
+        .message-author {
+            color: #a6a6a6;
+            display: inline;
+            text-transform: capitalize;
+        }
+        &.incoming {
+            .me {
+                display: none;
+            }
+    
+        }
+        &.outgoing {
+            .peer {
+                display:none;
+            }
+        }
+        .message-text {
+            hyphens: auto;
+            overflow-wrap: break-word;
+            font: 1.3em "Exo 2", sans-serif;
+            @media screen and (max-width: $mbdevW) {
+                font-size: 1em;
+            }
+        }
+        .message-timestamp {
+            display: inline;
+            color: grey;
+            margin-left: 0.5em;
+            .ts-date, .ts-time {
+                display: inline;
+            }
+            .ts-date {
+                display: none;
+            }
+        }
+    }
+} 
+.message.incoming + .message.outgoing, .message.outgoing + &.message.incoming {
+    margin: 12px 10px 0 10px;
+}
+.message.incoming + .message.incoming, .message.outgoing + .message.outgoing {
+    margin: 0 10px;
+    padding-top: 0;
+    .message-author, .message-timestamp {
+        display:none
+    }
+}
+.roster-history-placeholder {
+    font: 3em WebSymbolsLigaRegular;
+    text-align: center;
+    color: gray;
+}
+.start-placeholder {
+    font: 3em WebSymbolsLigaRegular;
+    text-align: center;
+    color: gray;
+}

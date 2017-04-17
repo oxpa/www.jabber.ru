@@ -1,0 +1,33 @@
+.footer > .conferences {
+    width: 80%;
+}
+.conference {
+    //display: inline-block;
+    //width: 25%;
+    position: relative;
+    min-width: 10em;
+    &>a {
+        border-bottom: none;
+    }
+}
+
+.confico {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    margin-right: .5em;
+    vertical-align: bottom;
+}
+.confname {
+    display: inline-block;
+}
+
+.conferences + .footer-holder {
+    height: 300px;
+}
+.conferences {
+    min-height: 350px;
+    columns: 4 10em;
+}

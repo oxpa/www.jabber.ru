@@ -1,0 +1,62 @@
+//@import url(https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic);
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300|Jura:600&subset=cyrillic');
+//@import url('https://fonts.googleapis.com/css?family=Exo+2:400,300,500|Jura:600&subset=cyrillic');
+
+@font-face{ 
+      font-family: 'WebSymbolsLigaRegular';
+          src: url('/fonts/WebSymbolsLiga-Regular/websymbolsligaregular.eot');
+          src: url('/fonts/WebSymbolsLiga-Regular/websymbolsligaregular.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/WebSymbolsLiga-Regular/websymbolsligaregular.woff') format('woff'),
+               url('/fonts/WebSymbolsLiga-Regular/websymbolsligaregular.ttf') format('truetype'),
+               url('/fonts/WebSymbolsLiga-Regular/websymbolsligaregular.svg#WebSymbolsRegular') format('svg');
+}
+
+@font-face {
+    font-family:"bicubik";
+    src:url("/fonts/bicubik.woff") format("woff"),url("/fonts/bicubik.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+/*
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/fonts/proximanova-reg-cur.otf");
+}
+
+@font-face {
+    font-family:"HelveticaNeueCyrUl";
+    src:url("/fonts/HelveticaNeueCyr-UltraLight.woff") format("woff"),url("/fonts/HelveticaNeueCyr-UltraLight.otf") format("opentype");
+}
+
+$helvetica-ff: HelveticaNeueCyrUl,Helvetica Neue,Helvetica,Arial,sans-serif;
+$trebuchet-ff: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;
+$proxima-ff:   "Proxima Nova","Open Sans",Arial,sans-serif;
+*/
+$mred: #e45539;
+$rred: #ee8866;
+$juraff: Jura,sans-serif;
+$forumff: "Forum",sans-serif;
+$istokff: "Istok Web", sans-serif;
+$robotoff: Roboto,sans-serif;
+$exo2ff: "Exo 2", sans-serif;
+$tenorff: $exo2ff;//"Tenor Sans",sans-serif;
+$footerwff: $tenorff;
+$footmenuitemff: $footerwff;
+$footmenuheadff: $juraff;
+$mmfont: 20px $juraff;
+$piconfont: 18px $juraff;
+$clientdescfont: 18px $tenorff;
+$formheaderfont: 27px $juraff;
+$inputfont: italic 18px $tenorff;
+
+.wtxt {
+    color: #ffffff;
+}
+.rtxt {
+    color: $mred;
+}
+
+h1,h2 {
+    font-family: $juraff;
+}

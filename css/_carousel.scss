@@ -1,0 +1,160 @@
+.picon {
+    font: $piconfont;
+    text-transform: uppercase;
+    padding: 7px 0em 4px 1em;
+    color: #777777;
+    border-bottom: solid;
+    border-color: gray;
+    cursor: pointer;
+
+    &.selected {
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+    &.locked {
+        border-color: $mred !important;
+        border-bottom: solid;
+        span:after {
+            content: " w";
+            visibility: visible;
+        }
+    }
+    span:before {
+        content:attr(data-txt);
+        display:inline;
+    }
+    span:after {
+        font: 15px WebSymbolsLigaRegular;
+        text-transform: none;
+        content:" v";
+        display: inline;
+        visibility: hidden;
+    }
+    &:hover span:after {
+        visibility: visible;
+    }
+    
+}
+.platform-icons {
+    margin-bottom: 45px;
+    text-align: center;
+}
+#carousel {
+    //padding-top: 30px;
+}
+.main-carousel {
+    margin: auto;
+    width: 90%;
+    min-height: 600px;
+
+    &:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+.cellwrap {
+    width: 80%;
+    min-height: 600px;
+    margin-right: 15%;
+}
+
+.carousel-cell {
+    //width: 100%;
+    //min-height: 600px;
+    //margin-right: 15%;
+    display: table;
+}
+
+.clientImg {
+    display: table-cell;
+    text-align: center;
+    max-height: 600px;
+    div {
+        max-width:360px;
+        max-height:600px;
+        overflow:hidden;
+        text-align:right;
+        direction:rtl;
+        img {
+            display:block;
+        }
+    }
+}
+.description-wrap1{
+    display:table-cell;
+    vertical-align: top;
+    padding-left: 60px;
+    &>h2 {
+        margin-top: 0;
+    }
+}
+
+.client-description {
+    @extend .wtxt;
+    font: $clientdescfont;
+    min-height: 600px;
+}
+
+.clientNameNarrow {
+    display: none;
+}
+
+.flickity-page-dots {
+    display: none;
+}
+
+
+@media screen and (max-width: ($mdevW)+200) {
+    .flickity-prev-next-button {  
+        display:none;
+    }
+    .main-carousel {
+        width: 100%;
+    }
+    .cellwrap,
+    .carousel-cell {
+        margin: 0;
+        width: 100%;
+    }
+}
+@media screen and (max-width: $mdevW) {
+    #carousel {
+        padding-top: 0;
+    }
+    .clientNameWide {
+        display: none;
+    }
+    .clientNameNarrow {
+        text-align: center;
+        display: block;
+    }
+
+    .clientImg {
+        display:block;
+        div {
+            width: 100%;
+            margin: auto;
+            img {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                margin: auto;
+            }
+        }
+    }
+    .description-wrap1{
+        display:block; 
+        padding: 15px;
+        text-align:justify;
+    }
+    
+    .picon {
+        width: 35%; 
+        display: inline-block;
+    }
+    .platform-icons {
+        margin-bottom: 0;
+    }
+
+
+}

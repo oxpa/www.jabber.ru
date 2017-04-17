@@ -1,0 +1,49 @@
+p:nth-child(3n) {
+    font-weight: 300;
+}
+p:nth-child(3n+1) {
+    font-weight: 400;
+}
+p:nth-child(3n+2) {
+    font-weight: 500;
+}
+p.person {
+    width: 80%;
+    @media screen and (max-width: $mdevW) {
+        width: 100%;
+    }
+    margin: auto;
+    display: block;
+    min-height: 200px;
+    &:nth-child(even) {
+        text-align: right;
+    
+        img {
+            float: right;
+            clear: right;
+            margin: 0 10px 0 20px;
+        }
+        span {
+            margin-right: 10px;
+        }
+    }
+    &:nth-child(odd) {
+        text-align: left;
+    
+        img {
+            float: left;
+            clear: left;
+            margin: 0 20px 0 10px;
+        }
+        span {
+            margin-left: 10px;
+        }
+    }
+    span { 
+        color: $mred;
+        font-size: 1.5em;
+        display: block;
+        margin-bottom: 15px;
+    }
+}
+
