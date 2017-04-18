@@ -2,6 +2,8 @@ import * as config from './config';
 import {some, checkFetchStatus} from './helpers';
 import {itemLoading} from './loading.state';
 import { Scrollbars } from 'react-custom-scrollbars';
+import * as msg from './form.messages.js'
+
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 
@@ -13,10 +15,11 @@ const ERROR = 'errors';
 class settings extends React.Component {
     render ()  {
         let props = this.props
+        /*
         if (props.loading) {return (<div className="r-settings">
                 <div className="loading"></div>
             </div>
-        )}
+        )}*/
         return <div className="r-settings"> 
         <Scrollbars autoHide>
           <div className='settings-default'>
@@ -29,24 +32,25 @@ class settings extends React.Component {
           </div>
           <div className="settings-always">
             <span>Переписка с этими контактами будет сохраняться всегда:</span>
-            <textarea value={props.historyAlwaysList} 
+            <textarea value={props.historyAlwaysList} className={props.always_err?'error':""}
                 onChange={props.setHistoryList('always')}
                 onBlur={props.validate}
                 placeholder="1 jid на строку (user@jabber.tld)">
             </textarea>
-            <span className="errortext">{props.always_err?"Ошибка в списке контактов":null}</span>
+            <div className="errortext">{props.always_err?"Ошибка в списке контактов":null}</div>
           </div>
           <div className="settings-never">
             <span>Переписка с этими контактами не будет сохраняться никогда:</span>
             <textarea value={props.historyNeverList} 
                 onChange={props.setHistoryList('never')}
-                onBlur={props.validate}>
+                onBlur={props.validate}
+                placeholder="1 jid на строку (user@jabber.tld)">
             </textarea>
-            <span className="errortext">{props.never_err?"Ошибка в списке контактов":null}</span>
+            <div className="errortext">{props.never_err?"Ошибка в списке контактов":null}</div>
           </div>
           <div className="settings-save">
-            <span>{props.form_err}</span>
             <button onClick={props.saveSettings}>Сохранить настройки</button>
+            <span className="errortext">{props.form_err}</span>
           </div>
         </Scrollbars>
       </div>
@@ -70,7 +74,11 @@ const mapStateToSettingsProps = (state) => {
 }
 const mapDispatchToSettingsProps = (dispatch) => ({
         setHistoryDefault : (ev) => {dispatch(setSettingsValue('default', ev.target.value))},
-        setHistoryList : (list) => (ev)=>{dispatch(setSettingsValue(list, ev.target.value.split('\n')))},
+        setHistoryList : (list) => (ev) => {  if (ev.target.value.endsWith('\n') || ev.target.classList[0]) {
+                                                dispatch(validateSettingsLists())
+                                              }
+                                              dispatch(setSettingsValue(list, ev.target.value.split('\n')))
+                                           },
         saveSettings : () => {dispatch(saveSettings())},
         validate: ()=> {dispatch(validateSettingsLists())}
     }
@@ -82,11 +90,9 @@ export const fetchSettings = () => (dispatch, getState) => {
     let state = getState()
     if (!state.user.loggedin) {
         console.log('user is not logged in')
-        return () => {}
     }
     if (state.loading.settings) {
         console.log('Settings are already being fetched')
-        return () => {}
     }
     dispatch(itemLoading(item))
     fetch(config.apiBase + 'mam/' + item, {
@@ -117,10 +123,14 @@ const saveSettings = () => (dispatch, getState) => {
     dispatch(setSettingsError('form', false))
     let state = getState()
     if (some(state.settings[ERROR], (el) => !!el)) {
+        dispatch(setSettingsError('form', "В списках контактов есть ошибки. Исправьте, пожалуйста."))
         return
     } else {
         dispatch(itemLoading('settings'))
         let body = state.settings[VALUE]
+        const filter = (el) => !!el
+        body.always = body.always.filter(filter)
+        body.never = body.never.filter(filter)
         console.log('settings settings to', JSON.stringify(body))
         fetch(config.apiBase + 'mam/settings', {
             method: 'POST',
@@ -135,8 +145,9 @@ const saveSettings = () => (dispatch, getState) => {
             if ('error' in json && json.error != "") {
                 console.log('Error getting settings: something went wrong')
                 console.log(json.error)
-                dispatch(setSettingsError('form', json.error))
+                dispatch(setSettingsError('form', msg.error[json.error] || json.error))
             }
+            dispatch(setSettingsError('form', "Настройки сохранены."))
             dispatch(itemLoading('settings'))
         }).catch (( error ) => {
             console.log('Could not save settings due to:', error)

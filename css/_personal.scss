@@ -138,6 +138,13 @@
     &>div {
         margin-bottom: 15px;
     }
+    .settings-default, .settings-always, .settings-never, .settings-save {
+        position: relative;
+        padding: 10px;
+    }
+    .settings-save {
+        padding: 10px;
+    }
     select {
         color: white;//rgba(0,0,0,0);
         //text-shadow: 0 0 0 white;
@@ -154,13 +161,21 @@
         display: block;
         background: $mblue;
         border: 2px $mred solid;
-        margin: 20px 40px;
+        margin: 20px;
         padding: 0 20px;
         width: 90%;
         @media screen and (max-width: $sdevW) {
             margin: 10px auto;
             padding: 0 10px;
+            width: 100%;
         }
+    }
+    textarea + .errortext {
+        color: $rred;
+        bottom: -1em;
+        right: 7%;
+        right: calc(5% + 20px);
+        
     }
     button {
         color: white;
@@ -169,7 +184,19 @@
         font: 1em "Exo 2", sans-serif;
         min-width: 20%;
         padding: 15px;
-        margin: 30px 40px;
+        margin: 30px;
+    }
+    .errortext {
+        position: absolute;
+        text-align: right;
+        width: 90%;
+        margin: auto;
+        @media screen and (max-width: $mbdevW) {
+            position: static;
+        }
+    }
+    .settings-save > .errortext {
+        position: static;
     }
 }
 
