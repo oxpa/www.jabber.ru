@@ -8,7 +8,7 @@ Then commit following commands (not verified):
 ```bash
 git clone https://github.com/oxpa/www.jabber.ru 
 cd www.jabber.ru
-npm i package.json
+npm i 
 node_modules/.bin/webpack
 mkdir public
 cp -ar static/* public/
