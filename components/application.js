@@ -38,7 +38,7 @@ let loggedin = false;
 let preset_roster = [];
 if ((typeof(vcard) !== 'undefined') && vcard.vcard) {
     preset_vcard = vcard.vcard.vCard || {};
-    preset_jid = vcard.vcard.jid || {};
+    preset_jid = vcard.jid || {};
     loggedin = true;
     preset_roster = roster.roster;
 }

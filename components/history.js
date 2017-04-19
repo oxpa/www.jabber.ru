@@ -148,7 +148,7 @@ const mapStateToThreadProps = (state) => {
         old_height: state.MAMHistory.old_height,
         peer: state.MAMHistory.peer,
         peer_name: peer_name,
-        my_name: state.user.vcard.NICKNAME || state.user.jid || "My precious",
+        my_name: state.user.vcard? state.user.vcard.NICKNAME : state.user.jid || "My precious",
         oldest_ts: oldest_ts
     }
 }

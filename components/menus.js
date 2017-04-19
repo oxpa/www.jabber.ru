@@ -66,7 +66,6 @@ const mapMMStateToProps = (state) => {
     let peer_name = peer && peer.name || state.MAMHistory.peer
     return {
             loggedin:   state.user.loggedin,
-            nick:       state.user.vcard.NICKNAME || state.user.jid || "My precious",
             skipLogo:   state.routing.locationBeforeTransitions && state.routing.locationBeforeTransitions.pathname == '/' || false,
             open:       state.loading.menu || false,
             peer:       state.MAMHistory.peer || undefined,
