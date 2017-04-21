@@ -178,7 +178,7 @@ const composeBodyForFetch = (dispatch, getState) => {
                     if (elem == 'login') {
                         if (value.indexOf('@') == -1) {
                             console.log('index of @ is -1, adding domain to ', value);
-                            value = value + '@' + config.xmppDomain
+                            value = value.trim() + '@' + config.xmppDomain
                         }
                         value = value.toLowerCase()
                     }
