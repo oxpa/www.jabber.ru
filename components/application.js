@@ -81,46 +81,46 @@ const loadAbout = (nextState,cb)=>{
        ,{path:'svcs', getComponent: loadSvcs}*/
 
 export const Routes = [{
-    path: '/',
-    component: ConnectedBody,
-    indexRoute: {component: Root},
-    childRoutes: [
-        {path: 'login', component: LoginFormConnected, store: store, onEnter: () => store.dispatch(setLoginForm())}
-       ,{path: 'logout', store: store, onEnter: (route, replace, hook) => {store.dispatch(userLogout()), replace("/")}}
-       ,{path: 'register', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRegForm())}}
-       ,{path: 'remind', component: LoginFormConnected,store: store, onEnter:  () => {store.dispatch(setRemindForm())}}
-       ,{path: 'reset', component: LoginFormConnected, store: store, onEnter:  () => {store.dispatch(setResetForm())}} //used to generate html form
-       ,{path: 'reset/:ehash', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRemindForm(true))}}
-       ,{path: 'register/:ehash', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRegForm(true))}}
-       ,{path: 'about', component: About, store:store}
-       ,{path: 'svcs', component: Svcs, store:store}
-       ,{path: 'chatlogs', component: Chatlogs, store:store}
-       ,{path: 'personal', 
-            component: PersonalSpace, 
-            store: store, 
-            onEnter: () => {store.dispatch(settlePersonal())},
-            indexRoute: {component: Settings, onEnter: () => {store.dispatch(fetchSettings())}}, 
-            childRoutes: [
-                {path: 'roster/:jid', component: Thread, store: store, 
-                    onEnter: (nextSt) => {
-                        store.dispatch(setHistoryPeer(nextSt.params.jid))
-                        store.dispatch(fetchHistory(nextSt.params.jid))
-                    },
-                    onLeave: (nextSt) => {
-                        store.dispatch(setHistoryPeer(undefined))
-                    }
-                },
-                {path: 'roster/:jid/:timestamp', component: Thread, store: store, 
-                    onEnter: (nextSt) => {
-                        store.dispatch(setHistoryPeer(nextSt.params.jid))
-                        store.dispatch(fetchHistory(nextSt.params.jid, nextSt.params.timestamp))
-                    } 
-                },
-            ]
-        }
-       ,{path:'download',component: ConnectedCarousel, store: store}
-    ],
-    //onEnter: function(){resetCaptcha();console.log('entering main route')}
+  path: '/',
+  component: ConnectedBody,
+  indexRoute: {component: Root},
+  childRoutes: [
+    {path: 'login', component: LoginFormConnected, store: store, onEnter: () => store.dispatch(setLoginForm())}
+    ,{path: 'logout', store: store, onEnter: (route, replace, hook) => {store.dispatch(userLogout()), replace("/")}}
+    ,{path: 'register', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRegForm())}}
+    ,{path: 'remind', component: LoginFormConnected,store: store, onEnter: () => {store.dispatch(setRemindForm())}}
+    ,{path: 'reset', component: LoginFormConnected,store: store, onEnter: () => {store.dispatch(setRemindForm())}}
+    ,{path: 'reset/:ehash', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRemindForm(true))}}
+    ,{path: 'register/:ehash', component: LoginFormConnected, store: store, onEnter: () => {store.dispatch(setRegForm(true))}}
+    ,{path: 'about', component: About, store:store}
+    ,{path: 'svcs', component: Svcs, store:store}
+    ,{path: 'chatlogs', component: Chatlogs, store:store}
+    ,{path: 'personal', 
+      component: PersonalSpace, 
+      store: store, 
+      onEnter: () => {store.dispatch(settlePersonal())},
+      indexRoute: {component: Settings, onEnter: () => {store.dispatch(fetchSettings())}}, 
+      childRoutes: [
+        {path: 'roster/:jid', component: Thread, store: store, 
+          onEnter: (nextSt) => {
+            store.dispatch(setHistoryPeer(nextSt.params.jid))
+            store.dispatch(fetchHistory(nextSt.params.jid))
+          },
+          onLeave: (nextSt) => {
+            store.dispatch(setHistoryPeer(undefined))
+          }
+        },
+        {path: 'roster/:jid/:timestamp', component: Thread, store: store, 
+          onEnter: (nextSt) => {
+            store.dispatch(setHistoryPeer(nextSt.params.jid))
+            store.dispatch(fetchHistory(nextSt.params.jid, nextSt.params.timestamp))
+          } 
+        },
+      ]
+    }
+    ,{path:'download',component: ConnectedCarousel, store: store}
+  ],
+  //onEnter: function(){resetCaptcha();console.log('entering main route')}
 }]
 export const App = (history) => (props)=>
     <Provider store={store}>
