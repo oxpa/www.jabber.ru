@@ -68,9 +68,10 @@ const FormItself = (props) =>
         </div>
         <div className={props.sending?"loader":"formError"}>{props.result}</div>
       </div>
-      <div className="form remind">
+      {props.secondStage || props.kind == 'remind' || <div className="form remind">
         <Link className="proxima" to="/remind">напомнить пароль</Link>
       </div>
+      }
     </form>
   </div>
 
