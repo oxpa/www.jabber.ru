@@ -23,6 +23,7 @@ class settings extends React.Component {
         return <div className="r-settings"> 
         <Scrollbars autoHide>
           <div className='settings-default'>
+            <p>На этой странице можно включить (или выключить) сохранение своих сообщений. Изменения сделанные на этой странице начинают учитываться сервером не сразу. На применение настроек может потребоваться около часа.</p>
             <span>По умолчанию, сообщения будут:</span>
             <select value={props.historyDefault} onChange={props.setHistoryDefault} >
               {Object.keys(props.historyDefaultOptions).map((cv) => ( 

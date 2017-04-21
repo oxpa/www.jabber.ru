@@ -142,6 +142,14 @@
         position: relative;
         padding: 10px;
     }
+    .settings-default>p:nth-child(1) {
+        width: 90%;
+        margin-top: -0.5em;
+        text-align: justify;
+        @media screen and (max-width: $sdevW) {
+            width: 100%
+        }
+    }
     .settings-save {
         padding: 10px;
     }
