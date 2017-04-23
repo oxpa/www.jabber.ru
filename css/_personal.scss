@@ -180,7 +180,7 @@
     }
     textarea + .errortext {
         color: $rred;
-        bottom: -1em;
+        bottom: 0;
         right: 7%;
         right: calc(5% + 20px);
         
