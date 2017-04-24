@@ -3,7 +3,7 @@ import {Anchor, Anchored} from "./anchor.js";
 import {Link} from 'react-router';
 import * as React from 'react';
 
-const conferences_jabber_ru = ["42fm", "4pda.ru", "bombus-talks", "bombus", "bombusmod", "clubjabber", "codingteam", "comp.lang.c", "coq", "debian", "devel", "dotnet", "ejabberd", "emacs", "english", "erlang", "erlim", "fangamedev", "freebsd", "freestyle", "gentoo", "golang", "haskell", "icfpc", "java", "javascript", "jtalk", "linux-talks", "linux", "lisp", "mint", "miranda-im", "miranda-ng", "mobile", "moto", "nethack", "ocaml", "pikabu", "programming", "psi-dev", "rock", "scala", "sex", "siemens", "support", "symbian", "sysadmins", "talks", "tcl", "tkabber", "vim", "web", "world_of_tanks", "xmonad", "yaroslavl"]
+const conferences_jabber_ru = ["42fm", "4pda.ru", "bombus-talks", "bombus", "bombusmod", "clubjabber", "codingteam", "comp.lang.c", "coq", "c_plus_plus", "debian", "devel", "dotnet", "ejabberd", "emacs", "english", "erlang", "erlim", "fangamedev", "freebsd", "freestyle", "gentoo", "golang", "haskell", "icfpc", "java", "javascript", "jtalk", "linux-talks", "linux", "lisp", "mint", "miranda-im", "miranda-ng", "mobile", "moto", "nethack", "ocaml", "pikabu", "programming", "psi-dev", "rock", "scala", "sex", "siemens", "support", "symbian", "sysadmins", "talks", "tcl", "tkabber", "vim", "web", "world_of_tanks", "xmonad", "yaroslavl"]
 const with_img_jabber_ru = ["bombusmod", "ejabberd", "linux", "miranda-ng", "ocaml", "debian", "emacs", "scala", "tkabber", "xmonad", "codingteam", "haskell", "jtalk", "dotnet", "erlang"]
 
 const style = (name) => { 
