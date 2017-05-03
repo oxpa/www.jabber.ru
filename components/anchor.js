@@ -10,12 +10,12 @@ export class Anchor extends React.Component {
 export const Anchored = WithAnchors => class extends React.Component {
   componentDidMount () {
     console.log(window.location.hash, this.props.id)
-    if (window.location.hash != ""){
+    if (window.location.hash.length > 0){
        document.querySelector(window.location.hash).scrollIntoView()
     }
   }
   componentDidUpdate (prevProps) {
-    if (this.props.location.hash != prevProps.location.hash) {
+    if ((this.props.location.hash != prevProps.location.hash) && this.props.location.hash.length > 0) {
         document.querySelector(window.location.hash).scrollIntoView()
     }
   }
