@@ -1,0 +1,12 @@
+.notFoundNumber {
+    color: $mred;
+    width: 100%;
+    font-family: bicubik,"Lucida Console", Monaco, monospace;
+    font-size: 5em;
+    font-weight: bold;
+
+}
+.notFoundText {
+    @extend .wtxt;
+    font: $mmfont;
+}

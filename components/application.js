@@ -13,6 +13,7 @@ import {user, userLogout} from "./user.js";
 import {loading} from "./loading.state.js"
 import {Root} from "./root.js";
 import {Chatlogs} from "./chatlogs.js";
+import {NotFound} from "./notfound.js";
 import {Router as Router_i, Route as Route_i}  from 'react-router';
 import * as ReactRedux from 'react-redux';
 import * as React from 'react';
@@ -79,11 +80,31 @@ const loadAbout = (nextState,cb)=>{
         
        /*,{path:'about', getComponents: loadAbout }
        ,{path:'svcs', getComponent: loadSvcs}*/
+function clashSlashesOnEnter(nextState, replace) {
+    let path = nextState.location.pathname;
+    let flag = false;
+    while(path.length > 1 && path.slice(-2) === '//') {
+        path = path.slice(0, -1);
+        flag = true;
+    }
+    if (flag) {
+      replace({
+        ...nextState.location,
+        pathname: path
+      })
+    }
+    return
+}
+function clashSlashesOnChange(prevState, nextState, replace) {
+    clashSlashesOnEnter(nextState, replace) 
+}
 
 export const Routes = [{
   path: '/',
   component: ConnectedBody,
   indexRoute: {component: Root},
+  onEnter: clashSlashesOnEnter,
+  onChange: clashSlashesOnChange,
   childRoutes: [
     {path: 'login', component: LoginFormConnected, store: store, onEnter: () => store.dispatch(setLoginForm())}
     ,{path: 'logout', store: store, onEnter: (route, replace, hook) => {store.dispatch(userLogout()), replace("/")}}
@@ -119,9 +140,11 @@ export const Routes = [{
       ]
     }
     ,{path:'download',component: ConnectedCarousel, store: store}
+    ,{path:'*', component: NotFound, store: store}//, onEnter: (route, replace) => {replace("/")}}
   ],
   //onEnter: function(){resetCaptcha();console.log('entering main route')}
-}]
+}
+]
 export const App = (history) => (props)=>
     <Provider store={store}>
       <Router history={history} routes={Routes}>
