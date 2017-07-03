@@ -18,6 +18,7 @@ var HTMLWrap = (props) =>
     <meta charSet="utf-8"/>
     <meta name="theme-color" content="#233747"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Jabber.ru — жаббер сервер, вероятно, крупнейший, старейший и самый надёжный"/>
     <link rel="stylesheet" href="/css/flickity.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="/css/fonts.css"/>
   
