@@ -11,14 +11,13 @@ paths:
       summary: get articles
       description: news!
       operationId: get_articles
-      parameters:
       responses:
         '200':
           description: news
           content:
             application/json:
               schema:
-                $ref: '#/definitions/Articles'
+                $ref: '#/components/schemas/Articles'
   /json/auth:
     post:
       summary: login
@@ -30,63 +29,132 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/definitions/Auth'
+              $ref: '#/components/schemas/Auth'
       responses:
         '200':
           description: logged
   /json/logout:
+    get:
+      summary: logout
+      description: invalidate credentials
+      operationId: get_logout
+      responses:
+        '200':
+          description: logouted
   /json/domains:
+    get:
+      summary: get domains
+      description: domains...
+      operationId: get_domains
+      responses:
+        '200':
+          description: domains
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainList'
   /json/register:
-  /json/reset:
-  /json/vcard:
-  /json/setemail:
-  /json/roster:
-  /json/feedback:
-  /json/mam/settings:
-  /json/mam/messages:
-definitions:
-  Auth:
-    required:
-      - login
-      - password
-      - captcha
-    properties:
-      login:
-        type: string
-      password:
-        type: string
-      captcha:
-        type: string
-  Articles:
-    type: object
-    properties:
-      articles:
-        type: array
-        items:
-          $ref: '#/definitions/Article'
-  Article:
-    type: object
-    properties:
-      id:
-        type: string
-      author:
-        type: string
-      title:
-        type: string
-      body:
-        type: string
-      posted:
-        type: string
-        format: date-time
-      modified:
-        type: string
-        format: date-time
-      published:
-        type: string
-        format: date-time
-      tags:
-        type: array
-        items:
+    post:
+      summary: register
+      description: register a new account
+      operationId: post_register
+      requestBody:
+        description: register data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: registered
+#  /json/reset:
+#  /json/vcard:
+#  /json/setemail:
+#  /json/roster:
+#  /json/feedback:
+#  /json/mam/settings:
+#  /json/mam/messages:
+components:
+  schemas:
+    Register:
+      required:
+        - captcha
+        - login
+        - password
+        - email
+        - hash
+      properties:
+        captcha:
           type: string
-      alias:
-        type: string
+        login:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        hash:
+          type: string
+    ErrorResult:
+      properties:
+        result:
+          type: string
+        error:
+          type: string
+    Domains:
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+    DomainList:
+      oneOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/Domains'
+    Auth:
+      required:
+        - login
+        - password
+        - captcha
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+        captcha:
+          type: string
+    Articles:
+      type: object
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+    Article:
+      type: object
+      properties:
+        id:
+          type: string
+        author:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        posted:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        alias:
+          type: string
