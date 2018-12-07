@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  title: www.jabber.ru api
+  description: www.jabber.ru backend api.
+  version: 0.1.0-SNAPSHOT
+servers:
+  - url: www.jabber.ru
+paths:
+  /json/articles:
+    get:
+      summary: get articles
+      description: news!
+      operationId: get_articles
+      parameters:
+      responses:
+        '200':
+          description: news
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Articles'
+  /json/auth:
+    post:
+      summary: login
+      description: login
+      operationId: post_login
+      requestBody:
+        description: user credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/Auth'
+      responses:
+        '200':
+          description: logged
+  /json/logout:
+  /json/domains:
+  /json/register:
+  /json/reset:
+  /json/vcard:
+  /json/setemail:
+  /json/roster:
+  /json/feedback:
+  /json/mam/settings:
+  /json/mam/messages:
+definitions:
+  Auth:
+    required:
+      - login
+      - password
+      - captcha
+    properties:
+      login:
+        type: string
+      password:
+        type: string
+      captcha:
+        type: string
+  Articles:
+    type: object
+    properties:
+      articles:
+        type: array
+        items:
+          $ref: '#/definitions/Article'
+  Article:
+    type: object
+    properties:
+      id:
+        type: string
+      author:
+        type: string
+      title:
+        type: string
+      body:
+        type: string
+      posted:
+        type: string
+        format: date-time
+      modified:
+        type: string
+        format: date-time
+      published:
+        type: string
+        format: date-time
+      tags:
+        type: array
+        items:
+          type: string
+      alias:
+        type: string
