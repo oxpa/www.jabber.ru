@@ -6,7 +6,7 @@ info:
 servers:
   - url: www.jabber.ru
 paths:
-  /json/articles:
+  /api/v2/json/articles:
     get:
       summary: get articles
       description: news!
@@ -18,7 +18,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Articles'
-  /json/auth:
+  /api/v2/json/auth:
     post:
       summary: login
       description: login
@@ -33,7 +33,7 @@ paths:
       responses:
         '200':
           description: logged
-  /json/logout:
+  /api/v2/json/logout:
     get:
       summary: logout
       description: invalidate credentials
@@ -41,7 +41,7 @@ paths:
       responses:
         '200':
           description: logouted
-  /json/domains:
+  /api/v2/json/domains:
     get:
       summary: get domains
       description: domains...
@@ -53,7 +53,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DomainList'
-  /json/register:
+  /api/v2/json/register:
     post:
       summary: register
       description: register a new account
@@ -68,15 +68,213 @@ paths:
       responses:
         '200':
           description: registered
-#  /json/reset:
-#  /json/vcard:
-#  /json/setemail:
-#  /json/roster:
-#  /json/feedback:
-#  /json/mam/settings:
-#  /json/mam/messages:
+  /api/v2/json/reset:
+    post:
+      summary: reset password
+      description: sent an email message with the link to reset password
+      operationId: post_reset
+      requestBody:
+        description: reset request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: reset
+  /api/v2/json/vcard:
+    get:
+      summary: get user vcard
+      description: get user vcard
+      operationId: get_vcard
+      responses:
+        '200':
+          description: users info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VCardResponse'
+  /api/v2/json/setemail:
+    post:
+      summary: set an email
+      description: link jid with the email
+      operationId: post_setemail
+      requestBody:
+        description: set email request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: email was setup
+  /api/v2/json/roster:
+    get:
+      summary: get the roster
+      description: retrieve user roster
+      operationId: get_roster
+      responses:
+        '200':
+          description: roster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RosterListResponse'
+  /api/v2/json/feedback:
+    post:
+      summary: sent a feedback
+      description: sent a message to site admins
+      operationId: post_feedback
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feedback'
+      responses:
+        '200':
+          description: the message was sent
+  /api/v2/json/mam/settings:
+    get:
+      summary: get MAM settings
+      description: get MAM settings
+      operationId: get_settings
+      responses:
+        '200':
+          description: MAM settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MAMSettingsResponse'
+    post:
+      summary: set MAM settings
+      description: set MAM settings
+      operationId: post_settings
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MAMSettings'
+      responses:
+        '200':
+          description: settings were updated
+  /api/v2/json/mam/messages:
+    post:
+      summary: get mam messages
+      description: get mam messages from the specified jid
+      operationId: post_messages
+      requestBody:
+        description: message owner
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MAMMessageRequest'
+      responses:
+        '200':
+          description: messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MAMMessageListResponse'
 components:
   schemas:
+    MAMMessageListResponse:
+      oneOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/MAMMessageList'
+    MAMMessageList:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MAMMessage'
+    MAMMessage:
+      properties:
+        ts:
+          type: integer
+          format: int64
+        bare_peer:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        nick:
+          type: string
+        txt:
+          type: string
+        xml:
+          type: string
+        direction:
+          type: string
+    MAMMessageRequest:
+      required:
+        - jid
+      properties:
+        jid:
+          type: string
+        ts:
+          type: integer
+          format: int64
+    MAMSettingsResponse:
+      oneOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/MAMSettings'
+    MAMSettings:
+      properties:
+        default:
+          type: string
+        always:
+          type: array
+          items:
+            type: string
+        never:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    Feedback:
+      properties:
+        email:
+          type: string
+        message:
+          type: string
+        captcha:
+          type: string
+    RosterListResponse:
+      oneOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/RosterList'
+    RosterList:
+      properties:
+        roster:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roster' 
+    Roster:
+      properties:
+        jid:
+          type: string
+        name:
+          type: string
+    VCardResponse:
+      oneOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/VCard'
+    VCard:
+      properties:
+        nickname:
+          type: string
+        fullName:
+          type: string
     Register:
       required:
         - captcha
