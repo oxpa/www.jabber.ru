@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: www.jabber.ru api
   description: www.jabber.ru backend api.
-  version: 0.1.0-SNAPSHOT
+  version: v2
 servers:
   - url: www.jabber.ru
 paths:
@@ -17,7 +17,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Articles'
+                $ref: '#/components/schemas/ArticlesResponse'
   /api/v2/json/auth:
     post:
       summary: login
@@ -29,10 +29,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Auth'
+              $ref: '#/components/schemas/AuthResponse'
       responses:
         '200':
           description: logged
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/logout:
     get:
       summary: logout
@@ -41,6 +45,10 @@ paths:
       responses:
         '200':
           description: logouted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/domains:
     get:
       summary: get domains
@@ -68,6 +76,10 @@ paths:
       responses:
         '200':
           description: registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/reset:
     post:
       summary: reset password
@@ -83,6 +95,10 @@ paths:
       responses:
         '200':
           description: reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/vcard:
     get:
       summary: get user vcard
@@ -110,6 +126,10 @@ paths:
       responses:
         '200':
           description: email was setup
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/roster:
     get:
       summary: get the roster
@@ -137,6 +157,10 @@ paths:
       responses:
         '200':
           description: the message was sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/mam/settings:
     get:
       summary: get MAM settings
@@ -163,6 +187,10 @@ paths:
       responses:
         '200':
           description: settings were updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
   /api/v2/json/mam/messages:
     post:
       summary: get mam messages
@@ -185,7 +213,7 @@ paths:
 components:
   schemas:
     MAMMessageListResponse:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/MAMMessageList'
     MAMMessageList:
@@ -223,7 +251,7 @@ components:
           type: integer
           format: int64
     MAMSettingsResponse:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/MAMSettings'
     MAMSettings:
@@ -250,7 +278,7 @@ components:
         captcha:
           type: string
     RosterListResponse:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/RosterList'
     RosterList:
@@ -266,7 +294,7 @@ components:
         name:
           type: string
     VCardResponse:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/VCard'
     VCard:
@@ -276,22 +304,32 @@ components:
         fullName:
           type: string
     Register:
+      oneOf:
+        - $ref: '#/components/schemas/RegisterEmail'
+        - $ref: '#/components/schemas/RegisterPassword'
+    RegisterEmail:
       required:
-        - captcha
         - login
-        - password
         - email
-        - hash
+        - captcha
       properties:
         captcha:
           type: string
         login:
           type: string
-        password:
-          type: string
         email:
           type: string
         phone:
+          type: string
+    RegisterPassword:
+      required:
+        - login
+        - password
+        - hash
+      properties:
+        login:
+          type: string
+        password:
           type: string
         hash:
           type: string
@@ -308,9 +346,13 @@ components:
           items:
             type: string
     DomainList:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/Domains'
+    AuthResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/Auth'
     Auth:
       required:
         - login
@@ -323,6 +365,10 @@ components:
           type: string
         captcha:
           type: string
+    ArticlesResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/Articles'
     Articles:
       type: object
       properties:
