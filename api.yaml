@@ -29,7 +29,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthResponse'
+              $ref: '#/components/schemas/Auth'
       responses:
         '200':
           description: logged
@@ -349,10 +349,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/ErrorResult'
         - $ref: '#/components/schemas/Domains'
-    AuthResponse:
-      allOf:
-        - $ref: '#/components/schemas/ErrorResult'
-        - $ref: '#/components/schemas/Auth'
     Auth:
       required:
         - login
