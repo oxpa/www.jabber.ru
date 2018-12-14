@@ -1,6 +1,6 @@
 let domain = 'www.jabber.ru'
 export let xmppDomain = 'jabber.ru'
-export let apiBase="/api/json/";
+export let apiBase="/api/v2/json/";
 export let baseUrl = 'https://'+domain;
 export let captchaSiteKey = "6Ld0CCATAAAAAAe5dOoNZhaFHAqak124eQS5t3Wu";
 export let personalUrl = baseUrl + '/personal';
