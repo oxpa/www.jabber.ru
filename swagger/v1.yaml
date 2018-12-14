@@ -299,10 +299,10 @@ components:
         - $ref: '#/components/schemas/VCard'
     VCard:
       properties:
-        nickname:
+        jid:
           type: string
-        fullName:
-          type: string
+        vcard:
+          type: object
     Register:
       oneOf:
         - $ref: '#/components/schemas/RegisterEmail'
