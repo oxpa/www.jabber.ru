@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: www.jabber.ru api
   description: www.jabber.ru backend api.
-  version: v2
+  version: v1
 servers:
   - url: www.jabber.ru
 paths:
@@ -286,7 +286,7 @@ components:
         roster:
           type: array
           items:
-            $ref: '#/components/schemas/Roster' 
+            $ref: '#/components/schemas/Roster'
     Roster:
       properties:
         jid:
