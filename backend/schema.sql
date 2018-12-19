@@ -1,3 +1,4 @@
+-- === default db ===
 -- articles
 create table "articles" (
   "uuid"      uuid primary key,
@@ -7,7 +8,7 @@ create table "articles" (
   "posted"    timestampz,
   "modified"  timestampz,
   "published" timestampz,
-  "tags"      text[],
+  "tags"      text,
   "alias"     text,
 );
 
@@ -26,15 +27,6 @@ create table "feedbacks" (
   "email"   text,
   "message" text,
   "ip"      inet
-);
-
--- mam
-create table "archive_prefx" (
-  "username"   text primary key,
-  "def"        text,
-  "always"     text,
-  "never"      text,
-  "created_at" timestampz
 );
 
 -- auth tokens
@@ -58,3 +50,26 @@ create index "email_idx" on "users"("email");
 create index "user_server_id" on "users"("username", "server");
 
 
+-- === mam db ===
+-- mam preferences
+create table "archive_prefs" (
+  "username"   text primary key,
+  "def"        text,
+  "always"     text,
+  "never"      text,
+  "created_at" timestampz
+);
+
+-- mam archive
+create table "archive" (
+  "id"        uuid primary key,
+  "timestamp" timestampz,
+  "username"  text,
+  "bare_peer" text,
+  "kind"      text,
+  "nick"      text,
+  "txt"       text,
+  "xml"       text
+);
+
+create index "user_peer" on "archive"("username", "bare_peer");
