@@ -97,7 +97,7 @@ export const Footer = (props) =>
             <span className="confs fblock">
             <div className="footmenuheader">Сервисы</div>
             <div className="footmenuitem"><a href="http://jc.jabber.ru">Рейтинг Конференций</a></div>
-            <div className="footmenuitem"><a href="http://chatlogs.jabber.ru">Архив сообщений</a></div>
+            <div className="footmenuitem"><a href="https://chatlogs.jabber.ru">Архив сообщений</a></div>
             <div className="footmenuitem"><a href="https://juick.com">Juick</a></div>
             {/*<div className="footmenuitem"><a href="">Ваш домен</a></div>*/}
             </span>
