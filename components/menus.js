@@ -104,7 +104,7 @@ export const Footer = (props) =>
             <span className="clients fblock">
             <div className="footmenuheader">Клиенты</div>
             <div className="footmenuitem"><a href="https://chat.jabber.ru">chat.jabber.ru</a></div>
-            <div className="footmenuitem"><a href="http://psi-plus.com">Psi+</a></div>
+            <div className="footmenuitem"><a href="https://psi-plus.com">Psi+</a></div>
             <div className="footmenuitem"><a href="https://www.xabber.com/">Xabber</a></div>
             <div className="footmenuitem"><a href="https://conversations.im/">Conversations</a></div>
             </span>
