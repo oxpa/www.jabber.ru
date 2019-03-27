@@ -21,7 +21,7 @@ Result is distributed across two directories: `compiled` and `compiledos`.
 The latter will have only two files suitable for production deployment.
 
 ### Contribution guide
-Please, discuss desired improvement at [support@conference.jabber.ru](xmpp://support@conference.jabber.ru) or in an issue before you do anything. May be someone else is working on the same feature already.
+Please, discuss desired improvement at [support@conference.jabber.ru](xmpp://support@conference.jabber.ru?join) or in an issue before you do anything. May be someone else is working on the same feature already.
 
 ### Roadmap
 * Make site multilingual (suggestions on implementation are welcome)
