@@ -22,7 +22,8 @@
   },
   "plugins": [
     "react",
-    "jest"
+    "jest",
+    "babel"
   ],
   "rules": {
     "jest/no-disabled-tests": "warn",
@@ -30,5 +31,6 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error"
-  }
+  },
+  "parser": "babel-eslint"
 }
