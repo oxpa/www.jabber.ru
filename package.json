@@ -1,7 +1,8 @@
 {
   "name": "www.jabber.ru",
   "version": "2.0.0",
-  "private": true,
+  "homepage": "www.jabber.ru",
+  "license": "Apache License 2.0",
   "dependencies": {
     "@types/jest": "24.0.13",
     "@types/node": "12.0.2",
@@ -40,6 +41,9 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.5.1",
-    "eslint-plugin-react": "^7.13.0"
+    "eslint-plugin-react": "^7.13.0",
+    "node-sass": "^4.12.0",
+    "sass": "^1.20.1",
+    "sass-loader": "^7.1.0"
   }
 }
