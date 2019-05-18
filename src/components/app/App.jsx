@@ -5,13 +5,12 @@ import store from '../../rootStore';
 import Router from '../router/Router';
 
 export default class App extends React.PureComponent {
-    render() {
-        return (
-            <div className="root">
-                <Provider store={store}>
-                    <Router/>
-                </Provider>
-            </div>
-        );
-    }
+
+    render = () => (
+        <div className="root">
+            <Provider store={store}>
+                <Router/>
+            </Provider>
+        </div>
+    );
 }
