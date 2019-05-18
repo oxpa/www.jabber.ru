@@ -11,4 +11,4 @@ class Service extends React.PureComponent {
     }
 }
 
-export default connect(() => ({}), () => ({}), Service);
+export default connect(() => ({}), () => ({}))(Service);

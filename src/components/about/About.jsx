@@ -11,4 +11,4 @@ class About extends React.PureComponent {
     }
 }
 
-export default connect(() => ({}), () => ({}), About);
+export default connect(() => ({}), () => ({}))(About);
