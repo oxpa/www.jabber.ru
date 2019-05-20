@@ -1,0 +1,14 @@
+.footer {
+  background-color: $medium-blue;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin: 30px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}

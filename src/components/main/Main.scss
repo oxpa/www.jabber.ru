@@ -1,0 +1,18 @@
+.main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: minmax(100px, auto);
+  height: 100vh;
+
+  .header, .clients, .footer {
+    grid-column-end: span 2;
+  }
+
+  .intro {
+    background-color: $light-blue;
+  }
+
+  .clients {
+    background-color: $light-blue;
+  }
+}

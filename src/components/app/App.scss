@@ -1,6 +1,9 @@
 @import "~normalize-scss/sass/normalize/import-now";
-@import "../main/Main";
 
-.root {
-  background-color: #f0ffff;
-}
+$light-blue: #7199be;
+$medium-blue: #53718c;
+
+@import "../main/Main";
+@import "../header/Header";
+@import "../footer/Footer";
+
