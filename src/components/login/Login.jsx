@@ -2,13 +2,16 @@ import React from 'react';
 import {connect} from "react-redux";
 import {bool} from 'prop-types';
 
+import Registration from './Registration';
+import Signup from './Signup';
+
 class Login extends React.PureComponent {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            selectedAuth: true
+            selectedAuth: false
         }
     }
 
@@ -16,10 +19,26 @@ class Login extends React.PureComponent {
         isLogged: bool
     };
 
+    switchToSignup = () => {
+        this.setState({selectedAuth: true})
+    };
+
+    switchToRegistration = () => {
+        this.setState({selectedAuth: false})
+    };
+
     render() {
         return (
             <div className="login-root">
-                Login page.
+                {
+                    this.state.selectedAuth
+                        ? <Signup
+                            switchToRegistration={this.switchToRegistration}
+                        />
+                        : <Registration
+                            switchToSignup={this.switchToSignup}
+                        />
+                }
             </div>
         );
     }
