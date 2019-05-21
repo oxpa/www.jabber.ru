@@ -3,6 +3,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Main from '../main/Main';
 import About from '../about/About';
 import Service from '../service/Service';
+import Help from '../help/Help';
 
 export default class Router extends React.PureComponent {
 
@@ -11,6 +12,7 @@ export default class Router extends React.PureComponent {
             <Route path="/" exact component={Main}/>
             <Route path="/about" exact component={About}/>
             <Route path="/service" exact component={Service}/>
+            <Route path="/help" exact component={Help}/>
         </BrowserRouter>
     );
 

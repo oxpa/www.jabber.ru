@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-class Service extends React.PureComponent {
+class Help extends React.PureComponent {
     render() {
         return (
             <>
-                Service page.
+                Help page.
             </>
         );
     }
 }
 
-export default connect(() => ({}), () => ({}))(Service);
+export default connect(() => ({}), () => ({}))(Help);

@@ -5,6 +5,7 @@ import {login} from '../app/AppActions';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+import Login from '../login/Login';
 
 class Main extends React.PureComponent {
 
@@ -44,6 +45,7 @@ class Main extends React.PureComponent {
                     </p>
                 </div>
                 <div className="row-1 login">
+                    <Login/>
                 </div>
                 <div className="row-2 news">
                 </div>
