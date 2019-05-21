@@ -16,17 +16,17 @@ class Main extends React.PureComponent {
         return (
             <div className="main">
                 <Header/>
-                <div className="intro">
-                    <p>
-                        Чат, который всегда с тобой
-                    </p>
+                <div className="light-blue row-0"/>
+                <div className="row-1 intro">
+                    <h2>Чат, который всегда с тобой</h2>
                     <p>
                         Присоединяйся к нам, барон!
                     </p>
                 </div>
-                <div className="intro intro-image">
+                <div className="row-2 intro intro-image">
                 </div>
-                <div className="info">
+                <div className="light-blue"/>
+                <div className="row-1 info">
                     <h3>Коротко о главном</h3>
                     <p>
                         Jabber.ru - это такой мессенджер.
@@ -35,7 +35,7 @@ class Main extends React.PureComponent {
                         о пользователях.
                     </p>
                 </div>
-                <div className="donation">
+                <div className="row-2 donation">
                     <h3>Помогите, чем можете</h3>
                     <p>
                         Наш чат всегда был бесплатным, таким
@@ -43,11 +43,11 @@ class Main extends React.PureComponent {
                         пожертвования от всех, кому нравится jabber.ru
                     </p>
                 </div>
-                <div className="login">
+                <div className="row-1 login">
                 </div>
-                <div className="news">
+                <div className="row-2 news">
                 </div>
-                <div className="clients">
+                <div className="row-wide clients">
                 </div>
                 <Footer/>
             </div>

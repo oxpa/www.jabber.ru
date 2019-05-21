@@ -3,6 +3,38 @@
 $light-blue: #7199be;
 $medium-blue: #53718c;
 
+.row-full {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.row-0 {
+  grid-column-start: 1;
+}
+
+.row-1 {
+  grid-column-start: 2;
+}
+
+.row-2 {
+  grid-column-start: 3;
+}
+
+.row-wide {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.light-blue {
+  background-color: $light-blue;
+}
+
+.medium-blue {
+  background-color: $medium-blue;
+}
+
+
+
 @import "../main/Main";
 @import "../header/Header";
 @import "../footer/Footer";
