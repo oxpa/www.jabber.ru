@@ -3,4 +3,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+
+  .login-title > div {
+    display: inline;
+  }
+
+  .login-row {
+    margin-top: 20px;
+  }
 }
