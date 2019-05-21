@@ -33,7 +33,13 @@ $medium-blue: #53718c;
   background-color: $medium-blue;
 }
 
+.underline {
+  text-decoration: underline;
+}
 
+.clickable {
+  cursor: pointer;
+}
 
 @import "../main/Main";
 @import "../header/Header";

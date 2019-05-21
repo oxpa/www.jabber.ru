@@ -2,7 +2,7 @@ import React from 'react';
 import {func} from 'prop-types';
 import {connect} from 'react-redux';
 import {login} from '../app/AppActions';
-
+import {TwitterTimelineEmbed} from 'react-twitter-embed';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Login from '../login/Login';
@@ -48,6 +48,14 @@ class Main extends React.PureComponent {
                     <Login/>
                 </div>
                 <div className="row-2 news">
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        screenName="Jabberru"
+                        noHeader
+                        noFooter
+                        noBorders
+                        options={{height: 300}}
+                    />
                 </div>
                 <div className="row-wide clients">
                 </div>
