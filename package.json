@@ -1,7 +1,6 @@
 {
   "name": "www.jabber.ru",
   "version": "2.0.0",
-  "homepage": "www.jabber.ru",
   "license": "Apache-2.0",
   "dependencies": {
     "@types/jest": "24.0.13",
