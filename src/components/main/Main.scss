@@ -1,14 +1,11 @@
 .main {
   display: grid;
   grid-template-columns: auto 25% 25% auto;
+  grid-template-rows: 60px;
   grid-auto-rows: minmax(100px, auto);
-  font-size: large;
+  font-size: x-large;
 
   text-align: center;
-
-  .header, .footer {
-    grid-column-end: span 2;
-  }
 
   .intro {
     text-align: center;
@@ -20,5 +17,16 @@
 
   .clients {
     background-color: $light-blue;
+  }
+
+  .news {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    & > h3 {
+      margin-top: 20px;
+    }
   }
 }

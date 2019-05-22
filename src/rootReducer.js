@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux-immutable'
-import LoginReducer from './components/app/AppReducer';
+import AppReducer from './components/app/AppReducer';
+import MainReducer from './components/main/MainReducer';
 
 export default combineReducers({
-    login: LoginReducer
+    login: AppReducer,
+    main: MainReducer,
 });
