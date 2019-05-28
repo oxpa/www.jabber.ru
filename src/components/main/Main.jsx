@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import {login} from '../app/AppActions';
 import {TwitterTimelineEmbed} from 'react-twitter-embed';
 import {List} from 'immutable';
-import {ButtonBack, ButtonNext, CarouselProvider, Slide, Slider} from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import Slider from "react-slick";
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
@@ -72,22 +71,18 @@ class Main extends React.PureComponent {
                     />
                 </div>
                 <div className="row-wide clients">
-                    <CarouselProvider
-                        naturalSlideHeight={10}
-                        naturalSlideWidth={100}
-                        visibleSlides={1}
-                        totalSlides={this.props.clients.size}
-                    >
-                        <Slider>
+                    <div className="slider-container">
+                        <Slider
+                            centerMode
+                            slidesToShow={3}
+                        >
                             {this.props.clients.map((c, idx) => {
                                 return (
-                                    <Slide key={`client-${idx}`} index={idx}>{c.get('name')}</Slide>
+                                    <div key={`client-${idx}`}>{c.get('name')}</div>
                                 );
                             })}
                         </Slider>
-                        <ButtonBack>Back</ButtonBack>
-                        <ButtonNext>Next</ButtonNext>
-                    </CarouselProvider>
+                    </div>
                 </div>
                 <Footer/>
             </div>

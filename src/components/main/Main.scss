@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .main {
   display: grid;
   grid-template-columns: auto 25% 25% auto;
@@ -17,6 +20,12 @@
 
   .clients {
     background-color: $light-blue;
+    display: flex;
+    justify-content: center;
+
+    .slider-container {
+      width: 900px;
+    }
   }
 
   .news {
