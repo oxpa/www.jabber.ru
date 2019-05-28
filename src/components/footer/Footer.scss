@@ -1,14 +1,33 @@
 .footer {
   background-color: $medium-blue;
+  grid-column-start: 1;
+  grid-column-end: 5;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(7, 14.3%);
 
-  a {
-    margin: 30px;
-    color: #ffffff;
-    font-weight: bold;
+  .footer-emblem {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .services {
+    grid-column-start: 4;
+    grid-column-end: 7;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .footer-menu-column {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
