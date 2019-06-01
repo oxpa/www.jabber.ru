@@ -3,6 +3,17 @@
 $light-blue: #7199be;
 $medium-blue: #53718c;
 
+@font-face {
+  font-family: Jura;
+  font-style: normal;
+  font-weight: bold;
+  src: url('../../fonts/JuraDemiBold.ttf') format('truetype');
+}
+
+body {
+  font-family: Jura, 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
 .row-full {
   grid-column-start: 2;
   grid-column-end: 4;
