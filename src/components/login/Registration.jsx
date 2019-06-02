@@ -29,10 +29,10 @@ class Registration extends React.PureComponent {
                 <div className="login-row">
                     <button>Регистрация</button>
                 </div>
-                <div className="login-row">
+                <div className="login-row login-info">
                     После регистрации скачайте программу
                     по нраву из перечня ниже, призовите друзей
-                    и общайтесь
+                    и общайтесь.
                 </div>
             </>
         );

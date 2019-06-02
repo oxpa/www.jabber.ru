@@ -10,5 +10,17 @@
 
   .login-row {
     margin-top: 20px;
+
+    button {
+      color: #ffffff;
+      background-color: $medium-blue;
+      width: 40%;
+      border-radius: 25px;
+    }
+
+    & + .login-info {
+      padding-left: 15%;
+      padding-right: 15%;
+    }
   }
 }

@@ -91,7 +91,12 @@
     padding-right: 15%;
 
     button {
-
+      font-weight: bold;
+      border-color: $light-blue;
+      background-color: #ffffff;
+      color: $medium-blue;
+      border-radius: 25px;
+      width: 60%;
     }
   }
 }

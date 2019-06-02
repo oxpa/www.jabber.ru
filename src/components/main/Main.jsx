@@ -51,7 +51,7 @@ class Main extends React.PureComponent {
                         и останется. Но мы с благодарностью примем
                         пожертвования от всех, кому нравится jabber.ru
                     </p>
-                    <button>Хочу помочь</button>
+                    <button>Хочу помочь!</button>
                 </div>
                 <div className="login">
                     <Login/>
@@ -67,6 +67,7 @@ class Main extends React.PureComponent {
                         noFooter
                         noBorders
                         options={{height: 260}}
+                        transparent
                     />
                 </div>
                 <div className="row-wide clients">
