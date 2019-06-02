@@ -33,7 +33,8 @@ class Main extends React.PureComponent {
                         Присоединяйся к нам, барон!
                     </p>
                 </div>
-                <div className="row-2 intro intro-image">
+                <div className="row-2 intro">
+                    <img alt="intro" className="intro-image" src="/images/intro.png"/>
                 </div>
                 <div className="light-blue"/>
                 <div className="row-1 info">

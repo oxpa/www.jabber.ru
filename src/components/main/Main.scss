@@ -3,7 +3,7 @@
 
 .main {
   display: grid;
-  grid-template-columns: auto 25% 25% auto;
+  grid-template-columns: 10% auto auto 10%;
   grid-template-rows: 60px;
   grid-auto-rows: minmax(100px, auto);
   font-size: x-large;
@@ -16,6 +16,13 @@
     background-color: $light-blue;
     color: #ffffff;
     font-weight: bold;
+
+  }
+
+  .intro-image {
+    margin-top: -60px;
+    margin-bottom: -80px;
+    height: 350px;
   }
 
   .clients {
@@ -37,5 +44,9 @@
     & > h3 {
       margin-top: 20px;
     }
+  }
+
+  .info, .donation {
+    margin-top: 40px;
   }
 }
