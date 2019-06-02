@@ -3,29 +3,50 @@
 
 .main {
   display: grid;
-  grid-template-columns: 10% auto auto 10%;
-  grid-template-rows: 60px;
+  grid-template-columns: 8% 42% 42% 8%;
+  grid-template-rows: 5% minmax(160px, 8%) 5% minmax(240px, 13%) 3% minmax(360px, 24%) 5% 23% minmax(200px, 14%);
   grid-auto-rows: minmax(100px, auto);
   font-size: x-large;
 
   text-align: center;
 
+  .intro-first {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    background-color: $light-blue;
+  }
+
+  .intro-last {
+    grid-row-start: 2;
+    grid-column-start: 4;
+    background-color: $light-blue;
+  }
+
   .intro {
-    text-align: center;
+    grid-row-start: 2;
+    grid-column-start: 2;
+    text-align: left;
+    padding-left: 20%;
 
     background-color: $light-blue;
     color: #ffffff;
     font-weight: bold;
+  }
 
+  .intro-logo {
+    background-color: $light-blue;
+    grid-column-start: 3;
+    grid-row-start: 2;
   }
 
   .intro-image {
-    margin-top: -60px;
-    margin-bottom: -80px;
-    height: 350px;
+    margin-top: -40px;
+    margin-bottom: -30px;
+    height: 280px;
   }
 
   .clients {
+    grid-row-start: 8;
     background-color: $light-blue;
     display: flex;
     justify-content: center;
@@ -36,6 +57,9 @@
   }
 
   .news {
+    grid-column-start: 3;
+    grid-row-start: 6;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -46,7 +70,28 @@
     }
   }
 
-  .info, .donation {
-    margin-top: 40px;
+  .info {
+    grid-row-start: 4;
+    grid-column-start: 2;
+
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .login {
+    grid-column-start: 2;
+    grid-row-start: 6;
+  }
+
+  .donation {
+    grid-row-start: 4;
+    grid-column-start: 3;
+
+    padding-left: 15%;
+    padding-right: 15%;
+
+    button {
+
+    }
   }
 }

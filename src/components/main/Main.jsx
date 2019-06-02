@@ -6,7 +6,6 @@ import {TwitterTimelineEmbed} from 'react-twitter-embed';
 import {List} from 'immutable';
 import Slider from "react-slick";
 
-import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Login from '../login/Login';
 
@@ -25,19 +24,18 @@ class Main extends React.PureComponent {
     render() {
         return (
             <div className="main">
-                <Header/>
-                <div className="light-blue row-0"/>
-                <div className="row-1 intro">
+                <div className="intro-first"/>
+                <div className="intro">
                     <h2>Чат, который всегда с тобой</h2>
                     <p>
-                        Присоединяйся к нам, барон!
+                        Присоединяйтесь к нам, барон!
                     </p>
                 </div>
-                <div className="row-2 intro">
+                <div className="intro-logo">
                     <img alt="intro" className="intro-image" src="/images/intro.png"/>
                 </div>
-                <div className="light-blue"/>
-                <div className="row-1 info">
+                <div className="intro-last"/>
+                <div className="info">
                     <h3>Коротко о главном</h3>
                     <p>
                         Jabber.ru - это такой мессенджер.
@@ -46,7 +44,7 @@ class Main extends React.PureComponent {
                         о пользователях.
                     </p>
                 </div>
-                <div className="row-2 donation">
+                <div className="donation">
                     <h3>Помогите, чем можете</h3>
                     <p>
                         Наш чат всегда был бесплатным, таким
@@ -55,10 +53,10 @@ class Main extends React.PureComponent {
                     </p>
                     <button>Хочу помочь</button>
                 </div>
-                <div className="row-1 login">
+                <div className="login">
                     <Login/>
                 </div>
-                <div className="row-2 news">
+                <div className="news">
                     <h3>
                         Новости
                     </h3>
@@ -68,7 +66,7 @@ class Main extends React.PureComponent {
                         noHeader
                         noFooter
                         noBorders
-                        options={{height: 300}}
+                        options={{height: 260}}
                     />
                 </div>
                 <div className="row-wide clients">

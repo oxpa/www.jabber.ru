@@ -1,15 +1,12 @@
 import React from 'react';
-import SVG from 'react-inlinesvg';
 import {connect} from 'react-redux';
-
-import Emblem from './emblem.svg';
 
 class Footer extends React.PureComponent {
 
     render = () => (
         <div className="footer">
             <div className="footer-emblem">
-              <img src="/images/logo.png"/>
+              <img alt="jabber.ru" src="/images/logo.png"/>
             </div>
             <div className="services">
                 <div className="title">Помощь</div>

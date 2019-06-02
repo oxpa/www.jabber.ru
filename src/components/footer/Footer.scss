@@ -2,6 +2,7 @@
   background-color: $medium-blue;
   grid-column-start: 1;
   grid-column-end: 5;
+  grid-row-start: 9;
 
   display: grid;
   grid-template-columns: repeat(7, 14.3%);
