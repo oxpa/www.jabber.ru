@@ -74,11 +74,21 @@ class Main extends React.PureComponent {
                     <div className="slider-container">
                         <Slider
                             centerMode
-                            slidesToShow={3}
+                            slidesToShow={5}
+                            dots
                         >
                             {this.props.clients.map((c, idx) => {
                                 return (
-                                    <div key={`client-${idx}`}>{c.get('name')}</div>
+                                    <div className="slider-item" key={`clients-${idx}`}>
+                                        <a className="slider-item-title" href={c.get('link')}>
+                                            {c.get('name')}
+                                        </a>
+                                        <div className="slider-item-content">
+                                            <a className="slider-item-image" href={c.get('link')}>
+                                                <img alt={c.get('name')} src={c.get('imgUrl')}/>
+                                            </a>
+                                        </div>
+                                    </div>
                                 );
                             })}
                         </Slider>
