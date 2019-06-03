@@ -17,14 +17,14 @@ class Footer extends React.PureComponent {
                     <div>Contacts</div>
                 </div>
                 <div className="footer-menu-column">
-                    <div>Рейтинг конференций</div>
-                    <div>Архив сообщений</div>
-                    <div>Juick</div>
+                    <div><a href="http://jc.jabber.ru/">Рейтинг конференций</a></div>
+                    <div><a href="https://www.jabber.ru/chatlogs/">Архив сообщений</a></div>
+                    <div><a href="https://juick.com/">Juick</a></div>
                 </div>
                 <div className="footer-menu-column">
-                    <div>chat.jabber.ru</div>
-                    <div>Xabber</div>
-                    <div>Conversations</div>
+                    <div><a href="https://chat.jabber.ru/">chat.jabber.ru</a></div>
+                    <div><a href="https://www.xabber.com/">Xabber</a></div>
+                    <div><a href="https://conversations.im/">Conversations</a></div>
                 </div>
             </div>
         </div>

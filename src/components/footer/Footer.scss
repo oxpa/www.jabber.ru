@@ -26,15 +26,26 @@
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
 
+    text-align: left;
+    padding-left: 20px;
+
     .title {
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      margin-bottom: 20px;
     }
 
     .footer-menu-column {
       display: flex;
       flex-direction: column;
+      font-size: large;
+
+      a, a:link, a:visited {
+        color: #ffffff;
+        text-decoration: none;
+      }
     }
   }
 }
