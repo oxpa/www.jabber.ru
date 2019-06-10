@@ -6,6 +6,8 @@
 
   .login-title > h3 {
     display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .login-row {
@@ -16,6 +18,11 @@
       background-color: $medium-blue;
       width: 40%;
       border-radius: 25px;
+    }
+
+    .reset-password {
+      color: $medium-blue;
+      text-decoration: underline;
     }
 
     & + .login-info {

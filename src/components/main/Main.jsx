@@ -26,17 +26,19 @@ class Main extends React.PureComponent {
             <div className="main">
                 <div className="intro-first"/>
                 <div className="intro">
-                    <h2>Чат, который всегда с тобой</h2>
-                    <p>
-                        Присоединяйтесь к нам, барон!
-                    </p>
+                    <div className="intro-text">
+                        <h2>Чат, который всегда с тобой</h2>
+                        <p>
+                            Присоединяйтесь к нам на jabber.ru!
+                        </p>
+                    </div>
                 </div>
                 <div className="intro-logo">
                     <img alt="intro" className="intro-image" src="/images/intro.png"/>
                 </div>
                 <div className="intro-last"/>
                 <div className="info">
-                    <h3>Коротко о главном</h3>
+                    <h3>Один абзац о нас</h3>
                     <p>
                         Jabber.ru - это такой мессенджер.
                         Бесплатный, безопасный, независимый,
@@ -45,13 +47,13 @@ class Main extends React.PureComponent {
                     </p>
                 </div>
                 <div className="donation">
-                    <h3>Помогите, чем можете</h3>
+                    <h3>Помочь нам</h3>
                     <p>
                         Наш чат всегда был бесплатным, таким
                         и останется. Но мы с благодарностью примем
                         пожертвования от всех, кому нравится jabber.ru
                     </p>
-                    <button>Хочу помочь!</button>
+                    <button>Помочь!</button>
                 </div>
                 <div className="login">
                     <Login/>
@@ -66,7 +68,7 @@ class Main extends React.PureComponent {
                         noHeader
                         noFooter
                         noBorders
-                        options={{height: 260}}
+                        options={{height: 260, width: 460}}
                         transparent
                     />
                 </div>

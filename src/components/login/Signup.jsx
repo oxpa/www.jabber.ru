@@ -29,6 +29,9 @@ class Registration extends React.PureComponent {
                 <div className="login-row">
                     <button>Вход</button>
                 </div>
+                <div className="login-row">
+                    <a href="#" className="reset-password">Напомнить пароль</a>
+                </div>
                 <div className="login-row login-info">
                     После регистрации скачайте программу
                     по нраву из перечня ниже, призовите друзей
