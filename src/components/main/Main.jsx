@@ -26,28 +26,30 @@ class Main extends React.PureComponent {
             <div className="main">
                 <div className="intro-first"/>
                 <div className="intro">
-                    <div className="intro-text">
-                        <h2>Чат, который всегда с тобой</h2>
-                        <p>
-                            Присоединяйтесь к нам на jabber.ru!
-                        </p>
+                    <div className="intro-text big">
+                        Чат, который всегда с тобой
                     </div>
                 </div>
+                <div className="intro-middle"/>
                 <div className="intro-logo">
                     <img alt="intro" className="intro-image" src="/images/intro.png"/>
                 </div>
                 <div className="intro-last"/>
                 <div className="info">
-                    <h3>Один абзац о нас</h3>
+                    <p className="big">
+                        Один абзац о нас
+                    </p>
                     <p>
-                        Jabber.ru - это такой мессенджер.
+                        Jabber.ru - это мессенджер.
                         Бесплатный, безопасный, независимый,
                         не содержит рекламы и не собирает данные
                         о пользователях.
                     </p>
                 </div>
                 <div className="donation">
-                    <h3>Помочь нам</h3>
+                    <p className="big">
+                        Помочь нам
+                    </p>
                     <p>
                         Наш чат всегда был бесплатным, таким
                         и останется. Но мы с благодарностью примем
@@ -59,9 +61,9 @@ class Main extends React.PureComponent {
                     <Login/>
                 </div>
                 <div className="news">
-                    <h3>
+                    <p className="big">
                         Новости
-                    </h3>
+                    </p>
                     <TwitterTimelineEmbed
                         sourceType="profile"
                         screenName="Jabberru"

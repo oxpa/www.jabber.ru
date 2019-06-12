@@ -7,16 +7,20 @@ $medium-blue: #53718c;
   font-family: Jura;
   font-style: normal;
   font-weight: normal;
-  src: url('../../fonts/JuraDemiBold.ttf') format('truetype');
+  src: url('../../fonts/Jura-Regular.ttf') format('truetype');
 }
 
 body {
   font-family: Jura, 'DejaVu Sans', Arial, Helvetica, sans-serif;
 }
 
+.big {
+  font-size: xx-large;
+}
+
 .row-full {
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 5;
 }
 
 .row-0 {
@@ -33,7 +37,7 @@ body {
 
 .row-wide {
   grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column-end: 6;
 }
 
 .white {

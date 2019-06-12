@@ -3,10 +3,10 @@
 
 .main {
   display: grid;
-  grid-template-columns: 8% 42% 42% 8%;
-  grid-template-rows: minmax(60px, 5%) 160px 6% minmax(240px, 13%) 3% minmax(360px, 24%) 5% 23% minmax(200px, 13%);
-  grid-auto-rows: minmax(100px, auto);
-  font-size: larger;
+  grid-template-columns: 15% minmax(30%, 400px) minmax(10%, 60px) minmax(30%, 400px) 15%;
+  grid-template-rows: minmax(60px, 5%) 160px minmax(6%, 120px) minmax(240px, 13%) 3% minmax(360px, 24%) 5% minmax(340px, 23%) minmax(200px, 13%);
+  grid-auto-rows: 100px;
+  font-size: x-large;
 
   text-align: center;
 
@@ -16,31 +16,34 @@
     background-color: $light-blue;
   }
 
+  .intro-middle {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    background-color: $light-blue;
+  }
+
   .intro-last {
     grid-row-start: 2;
-    grid-column-start: 4;
+    grid-column-start: 5;
     background-color: $light-blue;
   }
 
   .intro {
     grid-row-start: 2;
     grid-column-start: 2;
-    text-align: center;
 
     background-color: $light-blue;
     color: #ffffff;
-    font-size: x-large;
-    font-weight: bold;
 
-    .intro-text {
-      text-align: left;
-      display: inline-block;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .intro-logo {
     background-color: $light-blue;
-    grid-column-start: 3;
+    grid-column-start: 4;
     grid-row-start: 2;
   }
 
@@ -94,7 +97,7 @@
   }
 
   .news {
-    grid-column-start: 3;
+    grid-column-start: 4;
     grid-row-start: 6;
 
     display: flex;
@@ -110,9 +113,6 @@
   .info {
     grid-row-start: 4;
     grid-column-start: 2;
-
-    padding-left: 15%;
-    padding-right: 15%;
   }
 
   .login {
@@ -122,10 +122,7 @@
 
   .donation {
     grid-row-start: 4;
-    grid-column-start: 3;
-
-    padding-left: 15%;
-    padding-right: 15%;
+    grid-column-start: 4;
 
     button {
       font-weight: bold;

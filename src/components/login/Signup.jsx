@@ -12,13 +12,15 @@ class Registration extends React.PureComponent {
         return (
             <>
                 <div className="login-row login-title">
-                    <h3 className="clickable" onClick={this.props.switchToRegistration}>
+                    <p className="clickable big" onClick={this.props.switchToRegistration}>
                         Регистрация
-                    </h3>
-                    /
-                    <h3 className="underline">
+                    </p>
+                    <p className="left-right-margin">
+                        /
+                    </p>
+                    <p className="underline big">
                         Вход
-                    </h3>
+                    </p>
                 </div>
                 <div className="login-row">
                     <input placeholder="Имя пользователя"/>
@@ -31,11 +33,6 @@ class Registration extends React.PureComponent {
                 </div>
                 <div className="login-row">
                     <a href="#" className="reset-password">Напомнить пароль</a>
-                </div>
-                <div className="login-row login-info">
-                    После регистрации скачайте программу
-                    по нраву из перечня ниже, призовите друзей
-                    и общайтесь.
                 </div>
             </>
         );
