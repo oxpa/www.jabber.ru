@@ -36,34 +36,34 @@ class Main extends React.PureComponent {
                 </div>
                 <div className="intro-last"/>
                 <div className="info">
-                    <p className="big">
+                    <div className="big">
                         Один абзац о нас
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         Jabber.ru - это мессенджер.
                         Бесплатный, безопасный, независимый,
                         не содержит рекламы и не собирает данные
                         о пользователях.
-                    </p>
+                    </div>
                 </div>
                 <div className="donation">
-                    <p className="big">
+                    <div className="big">
                         Помочь нам
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         Наш чат всегда был бесплатным, таким
                         и останется. Но мы с благодарностью примем
                         пожертвования от всех, кому нравится jabber.ru
-                    </p>
+                    </div>
                     <button>Помочь!</button>
                 </div>
                 <div className="login">
                     <Login/>
                 </div>
                 <div className="news">
-                    <p className="big">
+                    <div className="big">
                         Новости
-                    </p>
+                    </div>
                     <TwitterTimelineEmbed
                         sourceType="profile"
                         screenName="Jabberru"

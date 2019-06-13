@@ -3,26 +3,29 @@
 
 .main {
   display: grid;
-  grid-template-columns: 15% minmax(30%, 400px) minmax(10%, 60px) minmax(30%, 400px) 15%;
-  grid-template-rows: minmax(60px, 5%) 160px minmax(6%, 120px) minmax(240px, 13%) 3% minmax(380px, 24%) minmax(5%, 60px) minmax(340px, 23%) minmax(200px, 13%);
+  grid-template-columns: 2fr 3fr 1fr 3fr 2fr;
+  grid-template-rows: minmax(60px, 5%) 160px minmax(6%, 120px) minmax(240px, 13%) 3% minmax(320px, 24%) minmax(5%, 60px) minmax(340px, 23%) minmax(200px, 13%);
   grid-auto-rows: 100px;
   font-size: x-large;
 
   text-align: center;
 
   .intro-first {
+    z-index: -1;
     grid-row-start: 2;
     grid-column-start: 1;
     background-color: $light-blue;
   }
 
   .intro-middle {
+    z-index: -1;
     grid-row-start: 2;
     grid-column-start: 3;
     background-color: $light-blue;
   }
 
   .intro-last {
+    z-index: -1;
     grid-row-start: 2;
     grid-column-start: 5;
     background-color: $light-blue;
@@ -60,7 +63,7 @@
     justify-content: center;
 
     .slider-container {
-      width: 60%;
+      width: 1200px;
 
       .slider-item {
 
@@ -125,6 +128,7 @@
     grid-column-start: 4;
 
     button {
+      margin-top: 25px;
       font-weight: bold;
       border-color: $light-blue;
       background-color: #ffffff;
