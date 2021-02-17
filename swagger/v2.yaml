@@ -1,0 +1,400 @@
+openapi: 3.0.1
+info:
+  title: www.jabber.ru api
+  description: www.jabber.ru backend api.
+  version: v1
+servers:
+  - url: www.jabber.ru
+paths:
+  /api/v2/json/articles:
+    get:
+      summary: get articles
+      description: news!
+      operationId: get_articles
+      responses:
+        '200':
+          description: news
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticlesResponse'
+  /api/v2/json/auth:
+    post:
+      summary: login
+      description: login
+      operationId: post_login
+      requestBody:
+        description: user credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth'
+      responses:
+        '200':
+          description: logged
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/logout:
+    get:
+      summary: logout
+      description: invalidate credentials
+      operationId: get_logout
+      responses:
+        '200':
+          description: logouted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/domains:
+    get:
+      summary: get domains
+      description: domains...
+      operationId: get_domains
+      responses:
+        '200':
+          description: domains
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainList'
+  /api/v2/json/register:
+    post:
+      summary: register
+      description: register a new account
+      operationId: post_register
+      requestBody:
+        description: register data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/reset:
+    post:
+      summary: reset password
+      description: sent an email message with the link to reset password
+      operationId: post_reset
+      requestBody:
+        description: reset request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/vcard:
+    get:
+      summary: get user vcard
+      description: get user vcard
+      operationId: get_vcard
+      responses:
+        '200':
+          description: users info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VCardResponse'
+  /api/v2/json/setemail:
+    post:
+      summary: set an email
+      description: link jid with the email
+      operationId: post_setemail
+      requestBody:
+        description: set email request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: email was setup
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/roster:
+    get:
+      summary: get the roster
+      description: retrieve user roster
+      operationId: get_roster
+      responses:
+        '200':
+          description: roster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RosterListResponse'
+  /api/v2/json/feedback:
+    post:
+      summary: sent a feedback
+      description: sent a message to site admins
+      operationId: post_feedback
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feedback'
+      responses:
+        '200':
+          description: the message was sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/mam/settings:
+    get:
+      summary: get MAM settings
+      description: get MAM settings
+      operationId: get_settings
+      responses:
+        '200':
+          description: MAM settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MAMSettingsResponse'
+    post:
+      summary: set MAM settings
+      description: set MAM settings
+      operationId: post_settings
+      requestBody:
+        description: request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MAMSettings'
+      responses:
+        '200':
+          description: settings were updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+  /api/v2/json/mam/messages:
+    post:
+      summary: get mam messages
+      description: get mam messages from the specified jid
+      operationId: post_messages
+      requestBody:
+        description: message owner
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MAMMessageRequest'
+      responses:
+        '200':
+          description: messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MAMMessageListResponse'
+components:
+  schemas:
+    MAMMessageListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/MAMMessageList'
+    MAMMessageList:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MAMMessage'
+    MAMMessage:
+      properties:
+        ts:
+          type: integer
+          format: int64
+        bare_peer:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        nick:
+          type: string
+        txt:
+          type: string
+        xml:
+          type: string
+        direction:
+          type: string
+    MAMMessageRequest:
+      required:
+        - jid
+      properties:
+        jid:
+          type: string
+        ts:
+          type: integer
+          format: int64
+    MAMSettingsResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/MAMSettings'
+    MAMSettings:
+      properties:
+        default:
+          type: string
+        always:
+          type: array
+          items:
+            type: string
+        never:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    Feedback:
+      properties:
+        email:
+          type: string
+        message:
+          type: string
+        captcha:
+          type: string
+    RosterListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/RosterList'
+    RosterList:
+      properties:
+        roster:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roster'
+    Roster:
+      properties:
+        jid:
+          type: string
+        name:
+          type: string
+    VCardResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/VCard'
+    VCard:
+      properties:
+        jid:
+          type: string
+        vcard:
+          type: object
+    Register:
+      oneOf:
+        - $ref: '#/components/schemas/RegisterEmail'
+        - $ref: '#/components/schemas/RegisterPassword'
+    RegisterEmail:
+      required:
+        - login
+        - email
+        - captcha
+      properties:
+        captcha:
+          type: string
+        login:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    RegisterPassword:
+      required:
+        - login
+        - password
+        - hash
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+        hash:
+          type: string
+    ErrorResult:
+      properties:
+        result:
+          type: string
+        error:
+          type: string
+    Domains:
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+    DomainList:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/Domains'
+    Auth:
+      required:
+        - login
+        - password
+        - captcha
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+        captcha:
+          type: string
+    ArticlesResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResult'
+        - $ref: '#/components/schemas/Articles'
+    Articles:
+      type: object
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+    Article:
+      type: object
+      properties:
+        id:
+          type: string
+        author:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        posted:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        alias:
+          type: string
